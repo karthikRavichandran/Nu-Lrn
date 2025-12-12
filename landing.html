@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nurture & Learn Foundation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Nurture & Learn Foundation – using AI to improve maternal & fetal health and children's education."
+  />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #eff6ff, #f9fafb 40%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 200deg,
+        #2563eb,
+        #22c55e,
+        #f97316,
+        #2563eb
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .nav-cta {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3vw + 1rem, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #2563eb, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 32rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.35);
+      transition: background 0.15s ease, transform 0.1s ease,
+        box-shadow 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-secondary {
+      padding: 0.72rem 1.25rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.93rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.15s ease, transform 0.1s ease,
+        border-color 0.1s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.09);
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .mini-card {
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
+      background: #f9fafb;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      font-size: 0.8rem;
+    }
+
+    .mini-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .mini-value {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-bg-accent {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #bfdbfe, transparent 60%);
+      right: -60px;
+      top: -60px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    /* Sections */
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.6rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 36rem;
+    }
+
+    /* About */
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-text p + p {
+      margin-top: 0.6rem;
+    }
+
+    .about-list {
+      margin-top: 0.7rem;
+      padding-left: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .about-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .about-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      font-size: 0.78rem;
+      color: #1d4ed8;
+    }
+
+    /* Programs */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .card-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .card li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Impact */
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .impact-card {
+      background: #0f172a;
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.15rem;
+    }
+
+    .impact-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .impact-note {
+      font-size: 0.78rem;
+      opacity: 0.8;
+      margin-top: 0.4rem;
+    }
+
+    .impact-card::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, #2563eb, transparent 60%);
+      opacity: 0.5;
+    }
+
+    /* How AI helps */
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .ai-list {
+      padding-left: 1.1rem;
+      font-size: 0.92rem;
+    }
+
+    .ai-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .ai-card {
+      background: #eff6ff;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid #bfdbfe;
+      font-size: 0.86rem;
+    }
+
+    /* Get Involved */
+
+    .involved-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .involved-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .involved-card h4 {
+      margin-bottom: 0.3rem;
+      font-size: 0.98rem;
+    }
+
+    /* Impact */
+      .impact-progress-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        padding: 1.6rem;
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 2rem;
+      }
+
+      .impact-progress-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .impact-progress-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .impact-progress-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 0.25rem;
+      }
+
+      .impact-progress-stat {
+        text-align: right;
+        font-weight: 600;
+        color: var(--text);
+        min-width: 160px;
+      }
+
+      .impact-progress-stat span {
+        display: inline-block;
+      }
+
+      .impact-progress-track {
+        position: relative;
+        height: 12px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        overflow: hidden;
+      }
+
+      .impact-progress-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 999px;
+        background: linear-gradient(120deg, var(--primary), var(--accent));
+        width: 0%;
+      }
+
+      .impact-progress-note {
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+    }
+
+    form {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid rgba(37, 99, 235, 0.3);
+      border-color: var(--primary);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-side {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-side strong {
+      color: var(--text);
+    }
+
+    .contact-list {
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-list div {
+      margin-bottom: 0.3rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero,
+      .about,
+      .cards-grid,
+      .impact-grid,
+      .ai-grid,
+      .involved-grid,
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        border-radius: 16px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 1rem;
+      }
+
+      .hero {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">NL</div>
+        <div>
+          <div class="logo-text-main">Nurture &amp; Learn Foundation</div>
+          <div class="logo-text-sub">Maternal health. Child learning. AI for good.</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#ai">AI for Good</a>
+        <a href="#involved">Get Involved</a>
+        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Contact
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-kicker">Non-profit initiative</div>
+          <h1 class="hero-title">
+            Giving every <span class="hero-highlight">mother &amp; child</span>
+            a smarter start in life.
+          </h1>
+          <p class="hero-subtitle">
+            We combine community care, doctors, educators and AI technology to
+            support maternal &amp; fetal health and provide personalised
+            learning for children in underserved communities.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary">
+              Donate now <span>→</span>
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('involved').scrollIntoView({behavior:'smooth'})">
+              Become a volunteer
+            </button>
+          </div>
+          <div class="hero-meta">
+            <div><strong>Focus:</strong> Maternal health, fetal care, education</div>
+            <div><strong>Powered by:</strong> AI &amp; local communities</div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Program snapshot">
+          <div class="hero-bg-accent"></div>
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            Pilot program in planning
+          </div>
+          <div class="hero-grid">
+            <div class="mini-card">
+              <div class="mini-label">Year 1 goal</div>
+              <div class="mini-value">100+ mothers</div>
+              <div class="hero-note">Basic prenatal care, nutrition &amp; counselling.</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">Children reached</div>
+              <div class="mini-value">200+ learners</div>
+              <div class="hero-note">After-school learning &amp; AI-based tutoring.</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">Health camps</div>
+              <div class="mini-value">Monthly</div>
+              <div class="hero-note">Maternal &amp; child health check-ups.</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-label">AI assistance</div>
+              <div class="mini-value">24/7 support</div>
+              <div class="hero-note">Local-language chatbot for mothers.</div>
+            </div>
+          </div>
+          <p class="hero-note">
+            These numbers are initial targets for our first-year pilot and will be updated as we grow.
+          </p>
+        </aside>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-eyebrow">Who we are</div>
+          <h2 class="section-title">Bridging maternal health and education with technology.</h2>
+          <p class="section-subtitle">
+            Nurture &amp; Learn Foundation is a non-profit initiative that
+            focuses on the first 1,000 days of life — from pregnancy to early
+            childhood — and the learning years that follow.
+          </p>
+        </div>
+
+        <div class="about">
+          <div class="about-text">
+            <p>
+              Millions of mothers and children still lack access to timely
+              health guidance and quality education. We believe AI can help
+              skilled professionals reach more families, without replacing the
+              human care that truly matters.
+            </p>
+            <p>
+              Our work sits at the intersection of:
+            </p>
+            <ul class="about-list">
+              <li>Maternal &amp; fetal health awareness and screening</li>
+              <li>Foundational education for children in low-resource settings</li>
+              <li>AI tools that personalise support, in local languages</li>
+            </ul>
+          </div>
+
+          <aside class="about-card">
+            <strong>What we aim to do in the first phase:</strong>
+            <ul class="about-list">
+              <li>Run regular maternal health &amp; fetal-care camps.</li>
+              <li>Set up after-school learning hubs for children.</li>
+              <li>Build simple AI-powered assistants for mothers &amp; learners.</li>
+            </ul>
+            <div class="about-tags">
+              <span class="tag">Maternal Health</span>
+              <span class="tag">Child Education</span>
+              <span class="tag">AI for Good</span>
+              <span class="tag">Community First</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Programs -->
+      <section id="programs">
+        <div class="section-header">
+          <div class="section-eyebrow">Our programs</div>
+          <h2 class="section-title">Two pillars, one mission.</h2>
+          <p class="section-subtitle">
+            We focus on practical, on-the-ground programs that can be scaled
+            with data and technology.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-label">Pillar 1</div>
+            <h3 class="card-title">Maternal &amp; fetal health</h3>
+            <p>
+              Supporting mothers before, during and after pregnancy with basic
+              care and timely information.
+            </p>
+            <ul>
+              <li>Pre-natal &amp; post-natal check-up camps</li>
+              <li>Anaemia &amp; nutrition screening</li>
+              <li>High-risk pregnancy identification and referral</li>
+              <li>Newborn care &amp; breastfeeding counselling</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-label">Pillar 2</div>
+            <h3 class="card-title">Children’s education</h3>
+            <p>
+              After-school and weekend sessions that strengthen core skills and
+              nurture curiosity.
+            </p>
+            <ul>
+              <li>Maths, reading and digital literacy clubs</li>
+              <li>Safe spaces for homework and mentoring</li>
+              <li>Scholarships for girls in school</li>
+              <li>Integrated health &amp; learning camps</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-label">Powered by</div>
+            <h3 class="card-title">AI for Social Good</h3>
+            <p>
+              Using AI to extend human care — never to replace it.
+            </p>
+            <ul>
+              <li>Local-language chatbot for mothers’ questions</li>
+              <li>AI tutor for personalised practice for children</li>
+              <li>Data tools to target high-need communities</li>
+              <li>Impact dashboards for donors &amp; partners</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Impact / Goals -->
+      <section id="impact">
+        <div class="section-header">
+          <div class="section-eyebrow">Our initial goals</div>
+          <h2 class="section-title">What we’re working towards.</h2>
+          <p class="section-subtitle">
+            As we begin operations, these are the milestones we are planning
+            for our first phase. These numbers will evolve as the work grows.
+          </p>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-value">100+</div>
+            <div class="impact-label">Mothers supported yearly</div>
+            <p class="impact-note">
+              Through health camps, basic diagnostics, nutrition support and
+              referrals.
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">200+</div>
+            <div class="impact-label">Children in learning hubs</div>
+            <p class="impact-note">
+              With personalised practice, mentorship and periodic health checks.
+            </p>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">3+</div>
+            <div class="impact-label">Communities in pilot phase</div>
+            <p class="impact-note">
+              We start small, learn fast, and then scale what works with data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How AI helps -->
+      <section id="ai">
+        <div class="section-header">
+          <div class="section-eyebrow">Technology</div>
+          <h2 class="section-title">How AI fits into our work.</h2>
+          <p class="section-subtitle">
+            AI is a tool, not the hero. Doctors, nurses, teachers and
+            community workers remain at the centre of everything we do.
+          </p>
+        </div>
+
+        <div class="ai-grid">
+          <div>
+            <ul class="ai-list">
+              <li>
+                <strong>AI pregnancy assistant:</strong> A simple, verified
+                chatbot that helps mothers understand symptoms, danger signs
+                and nutrition guidance — and encourages timely visits to a
+                clinic.
+              </li>
+              <li>
+                <strong>Personalised learning for kids:</strong> Adaptive
+                practice exercises that adjust to each child’s pace, offering
+                feedback in their language.
+              </li>
+              <li>
+                <strong>Data-informed decisions:</strong> We use anonymised
+                data to identify high-need areas, track engagement and measure
+                impact transparently.
+              </li>
+            </ul>
+          </div>
+          <aside class="ai-card">
+            <strong>Our principles for AI use:</strong>
+            <ul class="about-list">
+              <li>Human-first, AI-assisted.</li>
+              <li>Explainable &amp; accountable systems.</li>
+              <li>Privacy and dignity of families come first.</li>
+              <li>Co-designed with doctors, educators &amp; communities.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Get involved -->
+      <section id="involved">
+        <div class="section-header">
+          <div class="section-eyebrow">Get involved</div>
+          <h2 class="section-title">You can help build this.</h2>
+          <p class="section-subtitle">
+            We are looking for early supporters who believe in combining social
+            impact with responsible technology.
+          </p>
+        </div>
+
+        <div class="involved-grid">
+          <div class="involved-card">
+            <h4>Partner / CSR</h4>
+            <p>
+              If you represent a company or institution, we would love to work
+              with you on sustained projects in maternal health or education.
+            </p>
+          </div>
+          <div class="involved-card">
+            <h4>Volunteer</h4>
+            <p>
+              Doctors, nurses, teachers, technologists and students — your
+              time and skills can directly support families and children.
+            </p>
+          </div>
+          <div class="involved-card">
+            <h4>Donate</h4>
+            <p>
+              Financial support helps us run health camps, equip learning hubs
+              and build open-source AI tools for social good.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-header">
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title">Let’s talk.</h2>
+          <p class="section-subtitle">
+            Share a bit about how you’d like to support or collaborate, and
+            we’ll get back to you.
+          </p>
+        </div>
+
+        <div class="contact">
+          <form>
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your full name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="role">I am a…</label>
+              <input
+                id="role"
+                type="text"
+                placeholder="Doctor, teacher, donor, student, etc."
+              />
+            </div>
+            <div>
+              <label for="message">How would you like to collaborate?</label>
+              <textarea
+                id="message"
+                placeholder="Tell us briefly how you want to help or what you’d like to discuss."
+              ></textarea>
+            </div>
+            <div>
+              <button type="button" class="btn-primary">
+                Send message
+              </button>
+              <p style="font-size: 0.78rem; color: #6b7280; margin-top: 0.4rem;">
+                (For now this is a static form. We’ll connect it to email / backend as we set up operations.)
+              </p>
+            </div>
+          </form>
+
+          <div class="contact-side">
+            <p>
+              <strong>Direct contact</strong><br />
+              You can also reach us directly:
+            </p>
+            <div class="contact-list">
+              <div>Email: <strong>contact@nurtureandlearn.com</strong> (placeholder)</div>
+              <div>Location: <strong>Trichy, India</strong></div>
+              <div>Social: <strong>@nurturelearn</strong> on major platforms (coming soon)</div>
+            </div>
+            <p style="margin-top: 0.9rem;">
+              As we formalise the NGO registration and operations, this website
+              will evolve with real locations, partners and impact stories.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Nurture &amp; Learn Foundation. All rights reserved.</div>
+      <div>
+        Built with care for mothers, children and communities.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
